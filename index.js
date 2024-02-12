@@ -5,6 +5,7 @@ dotenv.config(); // Load environment variables from .env file
 import contactsRouter from "./routes/contactRoutes.js";
 import errorHandler from "./middleware/errorHandler.js";
 import connectDb from "./config/dbConnection.js";
+import userRouter from "./routes/userRoutes.js";
 
 // CommonJS
 // const express = require("express");
@@ -20,6 +21,7 @@ app.get('/', (request, response) =>{
 
 app.use(express.json());
 app.use("/api/contacts", contactsRouter); // Using the contacts router
+app.use("/api/users", userRouter);
 app.use(errorHandler);
 
 app.listen(port, () =>{
